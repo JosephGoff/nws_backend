@@ -21,10 +21,18 @@ app.get("/api/nws", async (req, res) => {
 
 app.get("/api/news", async (req, res) => {
   try {
-    const nwsAlerts = await getNews();
-    res.json({
-      articles: nwsAlerts,
-    });
+    const result = await getNews();
+    if (result.length === 2 && result[0].length > 0 && result[1].length > 0) {
+      res.json({
+        articles: result[0],
+        articles: result[1],
+      });
+    } else {
+      res.json({
+        articles: null,
+        indices: null,
+      });
+    }
   } catch (err) {
     console.error("Error getting news:", err);
     res.status(500).json({ error: "Failed to fetch news" });

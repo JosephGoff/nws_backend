@@ -206,7 +206,7 @@ const openai_query = async (articles) => {
 async function getNews() {
   const NEWS_ARTICLES = await fetchFloodArticles();
   const results = openai_query(NEWS_ARTICLES)
-  return results
+  return [articles, results]
 }
 
 export {
