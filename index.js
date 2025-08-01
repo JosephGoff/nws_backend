@@ -25,7 +25,7 @@ app.get("/api/news", async (req, res) => {
     if (result.length === 2 && result[0].length > 0 && result[1].length > 0) {
       res.json({
         articles: result[0],
-        articles: result[1],
+        indices: result[1],
       });
     } else {
       res.json({
