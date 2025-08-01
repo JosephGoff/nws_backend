@@ -204,8 +204,8 @@ const openai_query = async (articles) => {
 };
 
 async function getNews() {
-  const NEWS_ARTICLES = await fetchFloodArticles();
-  const results = openai_query(NEWS_ARTICLES)
+  const articles = await fetchFloodArticles();
+  const results = await openai_query(articles)
   return [articles, results]
 }
 
@@ -213,3 +213,5 @@ export {
   getLatestNwsAlerts,
   getNews
 };
+
+getNews()
