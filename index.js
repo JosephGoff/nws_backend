@@ -23,7 +23,7 @@ app.get("/api/news", async (req, res) => {
   try {
     const nwsAlerts = await getNews();
     res.json({
-      alerts: nwsAlerts,
+      articles: nwsAlerts,
     });
   } catch (err) {
     console.error("Error getting news:", err);
